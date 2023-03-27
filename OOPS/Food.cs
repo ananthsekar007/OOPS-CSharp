@@ -8,13 +8,14 @@ namespace OOPS
 {
     internal class Food
     {
-        static Dictionary<string, int> foods = new()
+        public enum FoodVarieties { banana, egg};
+        static Dictionary<FoodVarieties, int> foods = new()
         {
-            ["banana"] = 100,
-            ["egg"] = 40,
+            [FoodVarieties.banana] = 100,
+            [FoodVarieties.egg] = 40,
         };
 
-        public static int GetCalorie(string foodName)
+        public static int GetCalorie(FoodVarieties foodName)
         {
             return foods[foodName];
         }

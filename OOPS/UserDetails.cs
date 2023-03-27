@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace OOPS
 {
-    public class UserDetails
+    internal class UserDetails: Food
     {
         string name;
         int age;
@@ -34,9 +35,9 @@ namespace OOPS
             set { this.calorieLimit = value; }
         }
 
-        public void EatFood(string foodName)
+        public void EatFood(Food.FoodVarieties foodName)
         {
-            this.calorieLimit -= Food.GetCalorie(foodName);
+            this.CalorieLimit -= Food.GetCalorie(foodName);
         }
     }
 }

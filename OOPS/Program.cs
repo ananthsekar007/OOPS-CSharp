@@ -25,7 +25,8 @@
                 else
                 {
                     Console.Write("What are you eating? : ");
-                    userDetails.EatFood(Console.ReadLine());
+                    Food.FoodVarieties food = (Food.FoodVarieties) Enum.Parse(typeof(Food.FoodVarieties),Console.ReadLine());
+                    userDetails.EatFood(food);
                 }
             }
             Console.WriteLine($" \n\n The remaining calories for the day is {userDetails.CalorieLimit} ");
