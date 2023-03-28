@@ -6,20 +6,29 @@ using System.Threading.Tasks;
 
 namespace OOPS
 {
-    public delegate int AddDelegate(int a, int b);
-    internal class Delegate
+    delegate void AddDelegate(int a, int b);
+    internal class Delegates
     {
-        static void Main(string[] args)
+         void Main(string[] args)
         {
             AddDelegate addDelegate = Add;
-            Console.WriteLine(addDelegate.Invoke(2,4));
-            Console.WriteLine(Add(2,3));
-            Console.WriteLine(addDelegate(3,4));
+            addDelegate += Subtract;
+            addDelegate(2,4);
+            addDelegate(3,4);
+            Delegate[] list = addDelegate.GetInvocationList();
+            foreach (Delegate d in list)
+            {
+                Console.WriteLine(d.DynamicInvoke(1, 1));
+            }
         }
 
-        static int Add(int a, int b)
+        static void Add(int a, int b)
         {
-            return a + b;
+            Console.WriteLine($"Addition - {a + b}");
+        }
+        static void Subtract(int a, int b)
+        {
+            Console.WriteLine($"Subtraction - {a - b}");
         }
     }
 }
