@@ -31,9 +31,19 @@ namespace OOPS
                 new Student() { Age = 17, Dept = "CSE", Name = "Ananth1" } 
             };
 
-            foreach(Student student in studentList.OrderBy(student => student.Age > 18).ToList()) {
+            int i = 1;
+
+            studentList.ForEach(student => { 
+                student.Id = i++;
+            });
+
+            studentList.Sort((s1, s2) => s2.Id - s1.Id);
+
+            studentList.Sort((student1, student2) => -student1.Age);
+
+            foreach(Student student in studentList) {
             
-                Console.WriteLine(student.Name);
+                Console.WriteLine(student.Id);
             }
 
         }
@@ -43,5 +53,7 @@ namespace OOPS
         public int Age { get; set;}
         public string Name { get; set;}
         public string Dept { get; set;}
+
+        public int Id { get; set; }
     }
 }
