@@ -23,6 +23,12 @@ namespace OOPS
             Predicate<string> predicate = (a) => a.Contains("a") ;
             Console.WriteLine(predicate.Invoke("dumb"));
 
+            List<int> list = new() { 4, 3, 5, 6, 7 };
+
+            Predicate<List<int>> checkifGreaterThanFive = (list) => list.All((a) => a > 5);
+
+            Console.WriteLine(checkifGreaterThanFive.Invoke(list));
+
         }
     }
 }
