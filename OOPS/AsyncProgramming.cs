@@ -8,7 +8,7 @@ namespace OOPS
 {
     internal class AsyncProgramming
     {
-        static async Task Main(string[] args)
+        async Task Main(string[] args)
         {
             Task<int> resultantNumber = ReturnNumber();
             FirstMethod();
