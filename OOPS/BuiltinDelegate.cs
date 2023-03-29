@@ -9,7 +9,7 @@ namespace OOPS
     internal class BuiltinDelegate
     {
 
-        static void Main(string[] args) { 
+        void Main(string[] args) { 
 
             //Action Built in type
             Action<string> action = (name) => Console.WriteLine($" Hello, {name}");
